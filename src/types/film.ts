@@ -1,9 +1,12 @@
+import { store } from '../store';
+import { Genre } from '../components/const';
+
 export type Film = {
   id: number;
   src: string;
   alt: string;
   filmName: string;
-  filmGenre: string;
+  filmGenre: Genre;
   filmYear: number;
   srcPoster: string;
   altPoster: string;
@@ -21,3 +24,6 @@ export type Rating = {
 };
 
 export type Films = Film[];
+
+export type State = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
