@@ -7,6 +7,7 @@ type MainPageProps = {
   filmTitle: string;
   filmGenre: string;
   filmYear: number;
+
 };
 
 function MainPage({
@@ -15,6 +16,7 @@ function MainPage({
   filmYear,
 }: MainPageProps): JSX.Element {
   const filmsGenre = useAppSelector((state) => state.films);
+  const filmCardCount = useAppSelector((state) => state.filmCardCount);
   return (
     <>
       <section className="film-card">
@@ -103,7 +105,7 @@ function MainPage({
           <GenreList />
 
           <div className="catalog__films-list">
-            <FilmsList films={filmsGenre} />
+            <FilmsList films={filmsGenre.slice(0, filmCardCount)} />
           </div>
 
           <div className="catalog__more">
